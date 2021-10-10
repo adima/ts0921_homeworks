@@ -222,7 +222,7 @@ class TimeSeriesPredictor(BaseEstimator):
         predict = {}
 
         ts = deepcopy(ts_lags)
-        for _ in range(n_steps):
+        for _ in range(int(n_steps)):
             next_row = self.generate_next_row(ts)
             next_timestamp = next_row.index[-1]
             value = self.model.predict(next_row)[0]
